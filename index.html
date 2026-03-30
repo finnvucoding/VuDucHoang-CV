@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vu Duc Hoang - Data Analyst & Quality Assurance Specialist CV">
+    <title>Vu Duc Hoang | CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a87;
+            --color-secondary: #64748b;
+            --color-accent: #3b82f6;
+            --color-bg: #e5e7eb;
+            --color-white: #ffffff;
+            --color-text: #1e293b;
+            --color-text-light: #475569;
+            --color-border: #cbd5e1;
+        }
+
+        html {
+            font-size: 11px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* ===== A4 PAPER CONTAINER ===== */
+        .cv-paper {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--color-white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: grid;
+            grid-template-columns: 72mm 1fr;
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .sidebar {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 28px 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-initials {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-title {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .sidebar-section {
+            margin-bottom: 22px;
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item svg {
+            width: 14px;
+            height: 14px;
+            fill: rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item a {
+            color: var(--color-white);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-item span {
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 3px 3px 3px 0;
+            font-weight: 500;
+        }
+
+        .education-item {
+            margin-bottom: 12px;
+        }
+
+        .education-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .education-item p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        /* ===== RIGHT MAIN CONTENT ===== */
+        .main-content {
+            padding: 28px 24px;
+        }
+
+        .main-section {
+            margin-bottom: 22px;
+        }
+
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        /* About/Summary */
+        .about-text {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-card {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .skill-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+
+        .skill-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .experience-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .experience-company {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .experience-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+        }
+
+        .project-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .project-card .project-type {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.5;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .tech-tag {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-white);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            html {
+                font-size: 10px;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .cv-paper {
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+            }
+
+            .project-card:hover {
+                border-color: var(--color-border);
+                box-shadow: none;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            html {
+                font-size: 9px;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .cv-paper {
+                width: 100%;
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .sidebar {
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-paper">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Profile -->
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="hoang.jpg" alt="Vu Duc Hoang" class="avatar-image">
+                </div>
+                <h1 class="profile-name">Vu Duc Hoang</h1>
+                <p class="profile-title">Data Analyst &<br>Quality Assurance Specialist</p>
+            </div>
+
+            <!-- Contact -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact</h3>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Thu Duc, Ho Chi Minh, Vietnam</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:finnvucoding@gmail.com">finnvucoding@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <a href="https://finnvucoding.github.io/finnvu-projects/index.html" target="_blank">GitHub Portfolio</a>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Technical Skills</h3>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">BeautifulSoup</span>
+                <span class="skill-tag">Selenium</span>
+                <span class="skill-tag">Playwright</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">CSV/Data Processing</span>
+            </div>
+
+            <!-- Education -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Education</h3>
+                <div class="education-item">
+                    <h4>HCMUTE</h4>
+                    <p>Ho Chi Minh City University of Technology and Education</p>
+                    <p>Focus: IT, Data Analytics</p>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Languages</h3>
+                <div class="contact-item">
+                    <span>🇻🇳 Vietnamese — Native</span>
+                </div>
+                <div class="contact-item">
+                    <span>🇬🇧 English — Strong Reading, Moderate Speaking</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT MAIN CONTENT -->
+        <main class="main-content">
+            <!-- About -->
+            <section class="main-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Detail-oriented data professional specializing in data extraction, cleaning, and quality assurance. 
+                    Passionate about ensuring high data integrity for AI models and business intelligence. 
+                    Native Vietnamese speaker with strong English reading comprehension.
+                </p>
+            </section>
+
+            <!-- Core Competencies -->
+            <section class="main-section">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>Data Quality Assurance</h4>
+                        <p>QA & Validation, Error Detection, Data Integrity</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Data Analysis</h4>
+                        <p>Visualization, Reporting, Power BI Dashboards</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Programming</h4>
+                        <p>Python, Pandas, Web Scraping, APIs</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Automation Testing</h4>
+                        <p>Playwright, Selenium, E2E Testing</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="main-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Freelance Data Specialist</h3>
+                        <span class="experience-company">Fiverr</span>
+                    </div>
+                    <p class="experience-desc">
+                        Automated the extraction, cleaning, and structuring of complex data from web sources into formatted CSV/Excel datasets. 
+                        Delivered high-accuracy data quality reports to clients across various industries, ensuring data integrity and reliability for business intelligence and AI model training.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="main-section">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>TopDev Job Scraper</h4>
+                        <p class="project-type">Web Automation</p>
+                        <p>Automated job listing extraction from TopDev with login authentication. Collects job details into structured datasets.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h4>ITViec Job Scraper</h4>
+                        <p class="project-type">Web Automation</p>
+                        <p>Comprehensive scraping solution for ITViec job portal with secure login. Extracts IT job market data for analysis.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">Selenium</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h4>BBC News to DOCX Converter</h4>
+                        <p class="project-type">Content Processing</p>
+                        <p>Automated tool that extracts BBC News articles and converts them into formatted DOCX documents.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">python-docx</span>
+                            <span class="tech-tag">Requests</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="main-section">
+                <div class="cta-box">
+                    <p>✨ Available for QA, Data Analysis, and Automation projects</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
